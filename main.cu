@@ -31,7 +31,7 @@ __global__ void cudaWithBlocksAndThreads(float *MatA, float *MatB, float *MatC, 
     return;
 }
 
-__global__ void matrixMultiplyShared(float * A, float * B, float * C,
+__global__ void matrixMultiplyTiled(float * A, float * B, float * C,
                                     int numARows, int numAColumns,
                                     int numBRows, int numBColumns,
                                     int numCRows, int numCColumns) {
@@ -145,7 +145,7 @@ int main(int argc, char ** argv) {
 
     // Call TILED kernel
     auto start = chrono::high_resolution_clock::now();
-    matrixMultiplyShared<<<dimGrid, dimBlock>>>(deviceA, deviceB, deviceC, numARows, numAColumns, numBRows, numBColumns, numCRows, numCColumns);
+    matrixMultiplyTiled<<<dimGrid, dimBlock>>>(deviceA, deviceB, deviceC, numARows, numAColumns, numBRows, numBColumns, numCRows, numCColumns);
     auto end =  chrono::high_resolution_clock::now();
     chrono::duration<float, std::milli> duration_ms = end - start;
     printf("TILED GPU %f ms\n", duration_ms.count());
