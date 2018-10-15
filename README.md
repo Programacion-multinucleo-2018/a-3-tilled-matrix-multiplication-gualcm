@@ -18,3 +18,22 @@ Rubric:
 3. GPU code is initialized correctly, and the device memory is deallocated.
 4. Implement matrix multiplication using shared memory and tiling.
 5. Report the average processing time and speedup for the different tile sizes.
+
+
+Matrix Size 2000 x 2000:
+Average Times with different tile sizes:
+
+8x8
+TILED GPU 0.022017 ms
+CPU 59445.851562 ms
+NOT TILED GPU 0.060577 ms
+
+16x16
+TILED GPU 0.026128 ms
+CPU 59325.921875 ms
+NOT TILED GPU 0.049867 ms
+
+32x32
+TILED GPU 0.026675 ms
+CPU 60608.656250 ms
+NOT TILED GPU 0.050182 ms
