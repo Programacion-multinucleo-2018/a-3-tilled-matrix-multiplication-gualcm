@@ -7,7 +7,7 @@
 
 using namespace std;
 
-int N = 2000;
+int N = 1000;
 int numCRows;
 int numARows = N;
 int numBRows = N;
